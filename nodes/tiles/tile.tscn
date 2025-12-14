@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://h0al1ig3egyp"]
+
+[ext_resource type="Texture2D" uid="uid://bst8w8wyx4ksb" path="res://art/tiles/character_tile.png" id="1_73g24"]
+[ext_resource type="Script" uid="uid://5akvby0f2bqb" path="res://nodes/tiles/tile.gd" id="1_vetkd"]
+[ext_resource type="FontFile" uid="uid://ds8pstw35lgg1" path="res://fonts/terminus-ttf/TerminusTTF.ttf" id="2_vetkd"]
+[ext_resource type="FontFile" uid="uid://5v7d3obe15bp" path="res://fonts/terminus-ttf/TerminusTTF-Bold.ttf" id="3_0atrq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73g24"]
+size = Vector2(32, 32)
+
+[node name="Tile" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_vetkd")
+metadata/_edit_group_ = true
+
+[node name="TileSprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_73g24")
+
+[node name="LetterLabel" type="Label" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -19.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_vetkd")
+text = "Z"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 0
+uppercase = true
+visible_characters = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 23.0
+offset_bottom = 20.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_0atrq")
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_73g24")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

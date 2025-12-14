@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqddf3mjshbgn"]
+
+[ext_resource type="Script" uid="uid://nbhttr4ad5lm" path="res://nodes/game.gd" id="1_cpdmu"]
+[ext_resource type="PackedScene" uid="uid://h0al1ig3egyp" path="res://nodes/tiles/tile.tscn" id="1_hneav"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_cpdmu")
+
+[node name="Tile" parent="." instance=ExtResource("1_hneav")]
+position = Vector2(154, 298)
+scale = Vector2(5, 5)
